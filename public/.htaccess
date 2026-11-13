@@ -1,0 +1,19 @@
+Options -Indexes
+DirectoryIndex index.php
+RewriteEngine On
+
+# Existing real files are served; everything else (unknown URLs, directories,
+# dotfiles, backups, config files) goes to the app, which renders the 404 page.
+RewriteRule (^|/)\.(?!well-known) index.php [L]
+RewriteRule ^index\.php$ - [L]
+RewriteRule \.(env|sql|sqlite|log|bak|lock|md|yml|yaml|json|php)$ index.php [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [QSA,L]
+
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "DENY"
+    Header unset X-Powered-By
+</IfModule>
+php_flag expose_php off

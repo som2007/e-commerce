@@ -1,0 +1,32 @@
+<?php
+
+use Rk\Threadwell\Core\Migration;
+
+return function (PDO $db): Migration {
+
+    return new class($db) extends Migration
+    {
+        public function up(): void
+        {
+            $this->db->exec("
+                CREATE TABLE IF NOT EXISTS roles (
+                    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                    name VARCHAR(50) NOT NULL UNIQUE,
+                    display_name VARCHAR(100) NOT NULL,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                        ON UPDATE CURRENT_TIMESTAMP
+                ) ENGINE=InnoDB
+                DEFAULT CHARSET=utf8mb4
+                COLLATE=utf8mb4_unicode_ci
+            ");
+        }
+
+        public function down(): void
+        {
+            $this->db->exec(
+                "DROP TABLE IF EXISTS roles"
+            );
+        }
+    };
+};

@@ -1,0 +1,3 @@
+<?php $p = $post ?? []; ?><form class="form panel" method="post" action="<?= e(url('admin/blog' . ($post ? '/' . $post['id'] : ''))) ?>"><?= csrf_field() ?>
+<label>Title <input name="title" value="<?= e($p['title'] ?? '') ?>" required></label><label>Slug (optional) <input name="slug" value="<?= e($p['slug'] ?? '') ?>"></label><label>Excerpt <input name="excerpt" value="<?= e($p['excerpt'] ?? '') ?>"></label>
+<label>Body (HTML) <textarea name="body" rows="14"><?= e($p['body'] ?? '') ?></textarea></label><label class="check"><input type="checkbox" name="is_published" value="1" <?= ($p['is_published'] ?? 1) ? 'checked' : '' ?>> Published</label><button class="btn btn-dark">Save post</button></form>

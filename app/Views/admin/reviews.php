@@ -1,0 +1,4 @@
+<div class="chips"><?php foreach (['pending', 'approved', 'rejected'] as $s): ?><a class="chip" style="<?= $s === $status ? 'background:#14171f;color:#fff' : '' ?>" href="?status=<?= $s ?>"><?= ucfirst($s) ?></a><?php endforeach; ?></div>
+<?php if (!$items): ?><p class="muted">Nothing here.</p><?php endif; ?>
+<?php foreach ($items as $r): ?><div class="panel"><div class="stars"><?= stars((float) $r['rating']) ?></div><strong><?= e($r['title']) ?></strong><p><?= e($r['body']) ?></p><p class="muted small"><?= e($r['name']) ?> on <?= e($r['product_name']) ?> &middot; <?= e(time_ago($r['created_at'])) ?></p>
+<div class="cta-row" style="max-width:340px"><?php foreach (['approve' => 'Approve', 'reject' => 'Reject', 'delete' => 'Delete'] as $a => $l): ?><form method="post" action="<?= e(url('admin/reviews/' . $r['id'] . '/' . $a)) ?>"><?= csrf_field() ?><button class="btn btn-outline btn-sm"><?= $l ?></button></form><?php endforeach; ?></div></div><?php endforeach; ?>

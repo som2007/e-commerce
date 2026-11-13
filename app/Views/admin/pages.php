@@ -1,0 +1,1 @@
+<table class="data-table"><tr><th>Title</th><th>URL</th><th></th></tr><?php foreach ($items as $p): ?><tr><td><?= e($p['title']) ?></td><td>/pages/<?= e($p['slug']) ?></td><td><a href="<?= e(url('admin/pages/' . $p['id'] . '/edit')) ?>">Edit</a></td></tr><?php endforeach; ?></table>

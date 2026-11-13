@@ -1,0 +1,3 @@
+<?php if (!$items): ?><p class="muted">No messages yet.</p><?php endif; ?>
+<?php foreach ($items as $m): ?><div class="panel" style="<?= $m['is_read'] ? '' : 'border-color:#14171f' ?>"><strong><?= e($m['name']) ?></strong> <span class="muted small"><?= e($m['email']) ?> <?= e($m['phone']) ?> &middot; <?= e(time_ago($m['created_at'])) ?></span><p><?= nl2br(e($m['message'])) ?></p>
+<?php if (!$m['is_read']): ?><form method="post" action="<?= e(url('admin/messages/' . $m['id'] . '/read')) ?>"><?= csrf_field() ?><button class="btn btn-outline btn-sm">Mark read</button></form><?php endif; ?></div><?php endforeach; ?>

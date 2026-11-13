@@ -1,0 +1,15 @@
+body.admin { display: grid; grid-template-columns: 220px 1fr; min-height: 100vh; background: #f7f1e3; }
+.a-side { background: #240810; padding: 20px 14px; display: flex; flex-direction: column; gap: 2px; position: sticky; top: 0; height: 100vh; overflow: auto; }
+.a-side a { color: #d8c3a0; text-decoration: none; padding: 9px 12px; border-radius: 6px; font-size: .92rem; }
+.a-side a:hover { background: #43121f; color: #fff; } .a-side a.on { background: #fff; color: #3a0f1c; font-weight: 600; }
+.a-side hr { border: 0; border-top: 1px solid #5a2030; margin: 12px 0; }
+.a-logo { font: 700 1.2rem var(--serif) !important; color: #fff !important; margin-bottom: 14px; } .a-logo small { font: 600 .65rem var(--font); opacity: .6; text-transform: uppercase; display: block; letter-spacing: .12em; }
+.a-main { padding: 28px 32px 60px; min-width: 0; } .a-title { font: 700 1.7rem var(--font); margin-bottom: 18px; }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 22px; }
+.stat { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: grid; gap: 6px; } .stat span { color: var(--muted); font-size: .82rem; } .stat strong { font-size: 1.5rem; }
+.a-cols { display: grid; grid-template-columns: 1.5fr 1fr; gap: 20px; align-items: start; } .a-cols > div { min-width: 0; }
+.a-bar { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; } .a-bar form { display: flex; gap: 8px; } .a-bar input, .a-bar select, .data-table input { padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; font: inherit; max-width: 100%; }
+body.admin .data-table { background: #fff; } .data-table input { width: 100%; min-width: 70px; }
+.cat-list { max-height: 300px; overflow: auto; display: grid; gap: 4px; }
+.img-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 12px; margin-bottom: 16px; } .img-item img { aspect-ratio: 4/5; object-fit: cover; width: 100%; border-radius: 6px; } .img-item .cta-row { gap: 8px; }
+@media (max-width: 900px) { body.admin { grid-template-columns: 1fr; } .a-side { position: static; height: auto; flex-direction: row; flex-wrap: wrap; } .stats { grid-template-columns: 1fr 1fr; } .a-cols { grid-template-columns: 1fr; } .a-main { padding: 18px; } .data-table { display: block; overflow-x: auto; } }

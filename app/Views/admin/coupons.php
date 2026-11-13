@@ -1,0 +1,9 @@
+<div class="a-cols"><div class="panel"><table class="data-table"><tr><th>Code</th><th>Discount</th><th>Min</th><th>Used</th><th>Active</th><th></th></tr>
+<?php foreach ($items as $c): ?><tr><td><strong><?= e($c['code']) ?></strong><?= $c['prepaid_only'] ? ' <span class="tag">online only</span>' : '' ?></td><td><?= $c['type'] === 'percent' ? e($c['value']) . '%' : money($c['value'], false) ?></td><td><?= money($c['min_amount'], false) ?></td><td><?= (int) $c['used_count'] ?><?= $c['usage_limit'] ? '/' . (int) $c['usage_limit'] : '' ?></td>
+<td><form method="post" action="<?= e(url('admin/coupons/' . $c['id'] . '/toggle')) ?>"><?= csrf_field() ?><button class="link"><?= $c['is_active'] ? 'On' : 'Off' ?></button></form></td>
+<td><form method="post" action="<?= e(url('admin/coupons/' . $c['id'] . '/delete')) ?>" data-confirm="Delete?"><?= csrf_field() ?><button class="link">Delete</button></form></td></tr><?php endforeach; ?></table></div>
+<div class="panel"><h3>New coupon</h3><form class="form" method="post" action="<?= e(url('admin/coupons')) ?>"><?= csrf_field() ?><label>Code <input name="code" required></label>
+<div class="form-row"><label>Type <select name="type"><option value="percent">Percent</option><option value="flat">Flat amount</option></select></label><label>Value <input type="number" step="0.01" name="value" required></label></div>
+<div class="form-row"><label>Min order <input type="number" name="min_amount" value="0"></label><label>Max discount <input type="number" name="max_discount"></label></div>
+<div class="form-row"><label>Usage limit <input type="number" name="usage_limit"></label><label>Expires <input type="date" name="expires_at"></label></div>
+<label class="check"><input type="checkbox" name="prepaid_only" value="1"> Online payment only</label><button class="btn btn-dark">Create</button></form></div></div>

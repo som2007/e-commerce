@@ -1,0 +1,1 @@
+<p><a class="btn btn-outline btn-sm" href="?export=csv">Export CSV</a></p><table class="data-table"><tr><th>Email</th><th>Subscribed</th></tr><?php foreach ($items as $s): ?><tr><td><?= e($s['email']) ?></td><td><?= e($s['created_at']) ?></td></tr><?php endforeach; ?></table>

@@ -1,0 +1,1 @@
+console.log('Threadwell frontend assets loaded successfully.');

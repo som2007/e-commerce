@@ -1,0 +1,4 @@
+<div class="stats"><?php foreach ($stats as $k => $v): ?><div class="stat"><span><?= e($k) ?></span><strong><?= e($v) ?></strong></div><?php endforeach; ?></div>
+<div class="a-cols"><div class="panel"><h3>Recent orders</h3><table class="data-table"><tr><th>Order</th><th>Customer</th><th>Total</th><th>Status</th></tr>
+<?php foreach ($recent as $o): ?><tr><td><a href="<?= e(url('admin/orders/' . $o['id'])) ?>"><?= e($o['order_number']) ?></a></td><td><?= e($o['ship_name']) ?></td><td><?= money($o['total']) ?></td><td><span class="status status-<?= e($o['status']) ?>"><?= e($o['status']) ?></span></td></tr><?php endforeach; ?></table></div>
+<div class="panel"><h3>Low stock</h3><?php if (!$lowStock): ?><p class="muted">All good.</p><?php endif; ?><table class="data-table"><?php foreach ($lowStock as $l): ?><tr><td><?= e($l['name']) ?></td><td><?= e($l['size']) ?></td><td><strong><?= (int) $l['stock'] ?></strong></td></tr><?php endforeach; ?></table></div></div>

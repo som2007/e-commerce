@@ -1,0 +1,9 @@
+# Project root must never be web-served. Use /public as the document root.
+# (Safety net for XAMPP setups where the whole folder sits under htdocs.)
+# Anything outside /public is answered with the site's own 404 page instead of Apache's "Forbidden".
+Options -Indexes
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^public(/|$) - [L]
+    RewriteRule ^ public/index.php [L]
+</IfModule>

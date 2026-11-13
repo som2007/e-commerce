@@ -1,0 +1,22 @@
+.product-card {
+    transition: transform 0.2s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+}
+
+.product-image-placeholder {
+    aspect-ratio: 3 / 4;
+    background: #f3f0eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #82796f;
+    font-size: 0.8rem;
+    letter-spacing: 0.2rem;
+}
+
+.product-card .card-body {
+    padding-top: 1rem;
+}

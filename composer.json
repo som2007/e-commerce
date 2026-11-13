@@ -1,0 +1,21 @@
+{
+    "name": "rk/threadwell",
+    "description": "Core PHP MVC Ecommerce Website",
+    "type": "project",
+    "license": "proprietary",
+    "autoload": {
+        "psr-4": {
+            "Rk\\Threadwell\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "rohit"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "vlucas/phpdotenv": "^5.7",
+        "phpmailer/phpmailer": "^7.1"
+    }
+}

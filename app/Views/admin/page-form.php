@@ -1,0 +1,1 @@
+<form class="form panel" method="post" action="<?= e(url('admin/pages/' . $p['id'])) ?>"><?= csrf_field() ?><label>Title <input name="title" value="<?= e($p['title']) ?>" required></label><label>Content (HTML) <textarea name="body" rows="18"><?= e($p['body']) ?></textarea></label><button class="btn btn-dark">Save page</button></form>

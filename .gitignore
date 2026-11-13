@@ -1,0 +1,27 @@
+# Dependencies
+/vendor/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Logs & cache
+/storage/logs/*
+!/storage/logs/.gitkeep
+
+/storage/cache/*
+!/storage/cache/.gitkeep
+
+# Generated files
+/storage/invoices/*
+/public/assets/uploads/*
+
+# Local databases
+/storage/*.sqlite
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
