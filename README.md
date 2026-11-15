@@ -1,4 +1,4 @@
-# Threadwell - menswear e-commerce (Core PHP MVC)
+# Threadwell - e-commerce (Core PHP MVC)
 
 ## Setup
 1. `composer install`
